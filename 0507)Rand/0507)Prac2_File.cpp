@@ -29,6 +29,11 @@ bool CheckInputNumber(string& str)
             return false;
         }
     }
+    if (str.length() < 4 || str.length() > 16)
+    {
+        cout << "비밀번호는 4~16자리 입니다. 다시 입력해주세요.\n" << endl;
+        return false;
+    }
     return true;
 }
 
@@ -89,13 +94,14 @@ int main()
     write_file.close();
 
     // 3. 회원명부 출력
+    cout << "----------" << "회원 명부 파일 읽기" << "----------" << endl;
     int lineCount = 0;
     std::ifstream read_file("member.txt");
     string line;
     vector<string> v;
     while (getline(read_file, line))
     {
-        v.push_back(line);
+        cout << line << endl;
         lineCount++;
     }
 
