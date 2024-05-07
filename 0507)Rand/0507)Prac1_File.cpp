@@ -10,7 +10,7 @@ using namespace std;
 //	{
 //		file.close();
 //	}
-//};
+//};//kk
 
 
 // file은 열고 닫기 필수. 그래야 저장 됨
