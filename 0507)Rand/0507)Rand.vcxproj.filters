@@ -21,5 +21,11 @@
     <ClCompile Include="0507)Prac1_File.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="0507)Prac1_File_re.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="0507)Prac2_File.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
