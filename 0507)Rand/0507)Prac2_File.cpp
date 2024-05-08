@@ -54,7 +54,7 @@ bool CheckInputAlpha(string& str)
     return true;
 }
 
-void inputStudentData(vector<members_info>& members)
+void inputMemberData(vector<members_info>& members)
 {
     for (int i = 0; i < members.size(); ++i) {
         cout << i + 1 << "번째 회원 이름 입력: ";
@@ -66,7 +66,29 @@ void inputStudentData(vector<members_info>& members)
     }
 }
 
-void printStudentInfo(const vector<members_info>& members)
+
+bool CheckLoginData(vector<members_info>& members,string& inputName, string& inputCode)
+{
+    cout << "이름과 비밀번호를 입력하세요." << endl;
+    cin >> inputName >> inputCode;
+    for (int i = 0; i < members.size(); ++i) 
+    {
+        if (members[i].name == inputName) 
+        {
+            if (members[i].code == inputCode)
+            {
+                cout << "로그인 성공.\n" << endl;
+                cout << "이름 : "<< inputName <<" "<< "비밀번호 : " << inputCode << endl;
+                return true; // 일치하는 이름을 찾았을 때
+            }
+
+        }
+    }
+    cout << "로그인 실패.\n" << endl;
+    return false; // 일치하는 이름이 없을 때
+}
+
+void printMemberInfo(const vector<members_info>& members)
 {
     for (const auto& member : members) {
         cout << "이름: " << member.name << " 비밀번호: " << member.code  << endl;
@@ -81,7 +103,7 @@ int main()
     cin >> memberNum;
     vector<members_info> members(memberNum);
 
-    inputStudentData(members);
+    inputMemberData(members);
 
     // 2. 사용자로부터 입력된 정보를 member.txt에 기록
     std::ofstream write_file("member.txt");
@@ -95,16 +117,30 @@ int main()
 
     // 3. 회원명부 출력
     cout << "----------" << "회원 명부 파일 읽기" << "----------" << endl;
-    int lineCount = 0;
+    //int lineCount = 0;
     std::ifstream read_file("member.txt");
     string line;
-    vector<string> v;
+    vector<members_info> read_members(memberNum);
+    
+    int count = 0;
     while (getline(read_file, line))
     {
+        read_members[count].name = line.substr(0, line.find(" "));
+        read_members[count].code = line.substr(line.find(" ")+1);
+                        
         cout << line << endl;
-        lineCount++;
+        
+        count++;
     }
 
     read_file.close();
+
+    // 실습 2. 회원 명부를 응용한 로그인 기능
+    
+    string inputName, inputCode;
+    while (!CheckLoginData(read_members,inputName,inputCode));
+
+    return 0;
+
 
 }
