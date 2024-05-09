@@ -14,12 +14,13 @@ struct members_info
 {
     string name;
     string code;
+    string telNum;
 };
 
 bool CheckInputNumber(string& str)
 {
     // str = "123ab321"; str[0], str[4]
-    cin >> str;
+    //cin >> str;
     for (char c : str) // for-each
     {
         // c가 숫자가 아닌 문자일 경우 == 0
@@ -61,10 +62,12 @@ void inputMemberData(vector<members_info>& members)
         while (!CheckInputAlpha(members[i].name));
 
         cout << i + 1 << "번째 회원 비밀번호 입력: ";
+        cin >> members[i].code;
         while (!CheckInputNumber(members[i].code));
 
     }
 }
+
 
 
 bool CheckLoginData(vector<members_info>& members,string& inputName, string& inputCode)
@@ -80,12 +83,55 @@ bool CheckLoginData(vector<members_info>& members,string& inputName, string& inp
                 cout << "로그인 성공.\n" << endl;
                 cout << "이름 : "<< inputName <<" "<< "비밀번호 : " << inputCode << endl;
                 return true; // 일치하는 이름을 찾았을 때
+
             }
 
         }
     }
     cout << "로그인 실패.\n" << endl;
     return false; // 일치하는 이름이 없을 때
+}
+
+void UpdateTelephoneFile(vector<members_info>& members, string& inputName, string& inputTelNum) 
+{
+    fstream fs;
+    fs.open("member_tel.txt");
+    fs.seekg(0, ios::beg);
+
+    string line;
+    bool found = false;
+    int pos;
+
+    while (getline(fs, line)) 
+    {
+        size_t namePos = line.find(inputName);
+        if (namePos != string::npos) {
+            found = true;
+            break;
+        }
+        pos = fs.tellg(); //위치값 pos에 저장
+    }
+    if (found) 
+    {
+        fs.seekp(pos, ios::beg); // 쓰기 위치 지정자를 찾은 위치로 이동
+        fs << inputName << ' ' << inputTelNum << endl; // 전화번호 업데이트
+        cout << "기존에 있는 회원입니다. 전화 번호를 업데이트 합니다." << endl;
+        cout << "---------------------------" << endl;
+        cout << "이름 : " << inputName << "전화번호 : " << inputTelNum << endl;
+    }
+    else 
+    {
+        // 새로운 회원 정보 추가
+        fs.clear(); // EOF  지우고
+        fs.seekp(0, ios::end); // 쓰기 위치 지정자를 파일의 끝으로 이동
+        fs << inputName << ' ' << inputTelNum << endl; // 새로운 회원 정보 작성
+        cout << "전화번호가 입력됩니다." << endl;
+        cout << "---------------------------" << endl;
+        cout << "이름 : " << inputName << "전화번호 : " << inputTelNum << endl;
+
+    }
+
+    fs.close(); // 파일 닫기
 }
 
 void printMemberInfo(const vector<members_info>& members)
@@ -137,8 +183,39 @@ int main()
 
     // 실습 2. 회원 명부를 응용한 로그인 기능
     
-    string inputName, inputCode;
-    while (!CheckLoginData(read_members,inputName,inputCode));
+    string inputName, inputCode, inputTelNum;
+    char quit = ' ';
+
+    while (quit != 'q') 
+    {
+        cout << "--------------" << "로그인 시스템" << "--------------" << endl;
+        if (CheckLoginData(read_members, inputName, inputCode)) 
+        {
+            
+            cout << "전화번호를 입력하세요.(공백, 특수문자 제외)/종료를 원할 시 'q' 입력" << endl;
+            getline(cin, inputTelNum);
+            if (inputTelNum == "q")
+            {
+                break;
+            }
+
+            while (!CheckInputNumber(inputTelNum)) 
+            {
+                cout << "전화번호를 입력하세요.(공백, 특수문자 제외)/종료를 원할 시 'q' 입력" << endl;
+                getline(cin, inputTelNum);
+                if (inputTelNum == "q") break;
+            }
+
+            if (inputTelNum != "q") 
+            {
+                UpdateTelephoneFile(read_members, inputName, inputTelNum);
+            }
+        }
+
+        cout << "계속하려면 아무 키나 입력하세요. 종료하려면 'q'를 입력하세요." << endl;
+        quit = cin.get();
+        
+    }
 
     return 0;
 
