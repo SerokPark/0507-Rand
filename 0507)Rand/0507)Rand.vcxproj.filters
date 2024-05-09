@@ -27,7 +27,7 @@
     <ClCompile Include="0507)Prac2_File.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="0507)Prac2_File_re.cpp">
+    <ClCompile Include="0509%29Prac1_Struct.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

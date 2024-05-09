@@ -133,8 +133,10 @@
     <ClCompile Include="0507)Prac1_File_re.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="0507)Prac2_File.cpp" />
-    <ClCompile Include="0507)Prac2_File_re.cpp" />
+    <ClCompile Include="0507)Prac2_File.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="0509%29Prac1_Struct.cpp" />
     <ClCompile Include="Prac1_Lotto.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
