@@ -26,8 +26,11 @@ int main()
 
 	cout << "복사 생성자의 넓이는 : " << rect2.area() << endl; // 복사한 변수의 넓이
 
-	Rectangle rect3(rect2);
+	Rectangle rect3(4,4);
+	rect3 = rect2;
+	
 	cout << "기본 생성자에 복사한 넓이는 : " << rect3.area() << endl; // 복사한 변수의 넓이
 
 	return 0;
+	
 }
