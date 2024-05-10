@@ -39,6 +39,9 @@
     <ClCompile Include="0510)Prac1_Class.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="0510)Prac1_1_Class.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Temp.h">
