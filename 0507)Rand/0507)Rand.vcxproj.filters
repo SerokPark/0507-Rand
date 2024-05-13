@@ -33,7 +33,7 @@
     <ClCompile Include="0509)Prac1_class.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Customer.cpp">
+    <ClCompile Include="gamePlayer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="0510)Prac1_Class.cpp">
@@ -45,9 +45,15 @@
     <ClCompile Include="0510)Prac2_gettersetter.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="GameCharacter.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Temp.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCharacter.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

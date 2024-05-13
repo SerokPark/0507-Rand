@@ -148,16 +148,20 @@
     <ClCompile Include="0510)Prac1_Class.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="0510)Prac2_gettersetter.cpp" />
-    <ClCompile Include="Customer.cpp">
+    <ClCompile Include="0510)Prac2_gettersetter.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="GameCharacter.cpp" />
+    <ClCompile Include="gamePlayer.cpp" />
     <ClCompile Include="Prac1_Lotto.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Temp.h" />
+    <ClInclude Include="GameCharacter.h" />
+    <ClInclude Include="Temp.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
