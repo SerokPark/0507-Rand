@@ -5,6 +5,8 @@
 
 #include <string>
 #include <iostream>
+#include<cstdlib>
+#include<ctime>
 
 using namespace std;
 
@@ -13,6 +15,9 @@ private:
     string name;
     int level;
     int item_num;
+    int HP;
+    int attackPoint;
+    int potion_num;
 
 public:
     Character(string name);
@@ -21,6 +26,13 @@ public:
     void pickItem();
     void useItem();
     void showStat() const;
+    void showHP();
+    void potion();
+    void attack(Character& player, Character& target);
+    void damage(int damage);
+    int getAttackPoint();
+    int getHP() { return HP; } // HP값 가져오는 getter
+        
 };
 
 #endif
