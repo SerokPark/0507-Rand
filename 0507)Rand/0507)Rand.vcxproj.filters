@@ -57,6 +57,12 @@
     <ClCompile Include="0520)DownCasting.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="0520)virtualFunc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="03_prac1_updowncasting.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Temp.h">
