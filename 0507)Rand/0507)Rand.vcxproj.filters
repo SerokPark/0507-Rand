@@ -48,6 +48,12 @@
     <ClCompile Include="GameCharacter.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="0514)Wizard.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="0520)Upcasting.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Temp.h">
