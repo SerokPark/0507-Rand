@@ -94,17 +94,33 @@ int main()
         }
     }
 
-    // snackBasket에 있는 각 인스턴스의 제조 회사를 출력
-    for (Snack* snack : snackBasket) 
+    for (int i = 0; i < sizeof(snackBasket) / sizeof(snackBasket[0]); i++)
     {
-        snack->printCompany();
+        //다운캐스팅
+        if (i < 2)
+        {
+            Candy* candy = (Candy*)snackBasket[i];
+            candy->printCompany();
+        }
+        else
+        {
+            Chocolate* chocolate = (Chocolate*)snackBasket[i];
+            chocolate->printCompany();
+        }
     }
 
-    // 동적으로 할당된 메모리 해제
-    for (Snack* snack : snackBasket) 
-    {
-        delete snack;
-    }
+
+    //// snackBasket에 있는 각 인스턴스의 제조 회사를 출력
+    //for (Snack* snack : snackBasket) 
+    //{
+    //    snack->printCompany();
+    //}
+
+    //// 동적으로 할당된 메모리 해제
+    //for (Snack* snack : snackBasket) 
+    //{
+    //    delete snack;
+    //}
 
     return 0;
 }
